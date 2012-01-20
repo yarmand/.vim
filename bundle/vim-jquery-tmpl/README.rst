@@ -1,0 +1,18 @@
+jquerytmpl.vim
+---------------
+
+jQuery Template syntax file for Vim 7.1+
+
+To install copy jquerytmpl.vim into your .vim/synx/ folder.
+
+Then in your .vimrc file:::
+
+    autocmd BufRead,BufNewFile *.html set filetype=djangohtml syntax=jquerytmpl
+    autocmd BufRead,BufNewFile *.jquery.tmpl set filetype=djangohtml syntax=jquerytmpl
+    let g:jquerytmpl_django = 1
+
+If you want just plain HTML:::
+
+    autocmd BufRead,BufNewFile *.html set filetype=html syntax=jquerytmpl
+    autocmd BufRead,BufNewFile *.jquery.tmpl set filetype=html syntax=jquerytmpl
+
