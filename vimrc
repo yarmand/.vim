@@ -22,7 +22,7 @@ set tabstop=2
 set softtabstop=2     " tab size
 set shiftwidth=2      " indentation size
 set expandtab         " use spaces for tab
-set list listchars=tab:\ \ ,trail:·
+"set list listchars=tab:\ \ ,trail:·
 set visualbell
 
 "Nice statusbar
@@ -108,9 +108,9 @@ map <C-s> :TlistToggle<CR>
 
 " find in project
 map <C-f> bvey :Ack <C-r>" <C-R>=project_search_root<CR>
-map tf bvey :Ack <C-r>" <C-R>=project_search_root<CR>
-map <C-F> :Ack what_goes_here <C-R>=project_search_root
-map tF :Ack what_goes_here <C-R>=project_search_root
+map fw bvey :Ack <C-r>" <C-R>=project_search_root<CR>
+" map <C-F> :Ack what_goes_here <C-R>=project_search_root
+map fp :Ack what_goes_here <C-R>=project_search_root
 
 " Gundo configuration
 nmap <C-u> :GundoToggle<CR>
