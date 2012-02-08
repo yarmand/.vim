@@ -113,7 +113,7 @@ map fw bvey :Ack <C-r>" <C-R>=project_search_root<CR>
 map fp :Ack what_goes_here <C-R>=project_search_root
 
 " Gundo configuration
-nmap <C-u> :GundoToggle<CR>
+nmap <C-x><C-u> :GundoToggle<CR>
 
 " Remember last location in file
 if has("autocmd")
