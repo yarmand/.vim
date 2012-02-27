@@ -107,10 +107,10 @@ map ts :TlistToggle<CR>
 map <C-s> :TlistToggle<CR>
 
 " find in project
-map <C-f> bvey :Ack <C-r>" <C-R>=project_search_root<CR>
-map fw bvey :Ack <C-r>" <C-R>=project_search_root<CR>
+map <C-f> bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>
+map fw bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>
 " map <C-F> :Ack what_goes_here <C-R>=project_search_root
-map fp :Ack what_goes_here <C-R>=project_search_root
+map fp :Ack -a what_goes_here <C-R>=project_search_root<CR>
 
 " Gundo configuration
 nmap <C-x><C-u> :GundoToggle<CR>
