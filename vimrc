@@ -45,7 +45,6 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-
 " Set encoding
 set encoding=utf-8
 
@@ -99,7 +98,7 @@ map fs :FufTag<CR>
 map <Leader><Leader> :ZoomWin<CR>
 
 " CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+map <Leader>rt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
 map <C-\> :tnext<CR>
 
 " TagList
