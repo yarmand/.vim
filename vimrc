@@ -68,6 +68,10 @@ set noequalalways
 :au FocusLost * silent! :wa
 autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
 
+" indent guides
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+
 " Spell checking
 set spelllang=en,fr
 set spell
