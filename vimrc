@@ -68,10 +68,6 @@ set noequalalways
 :au FocusLost * silent! :wa
 autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
 
-" indent guides
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-
 " Spell checking
 set spelllang=en,fr
 set spell
@@ -158,7 +154,7 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map<Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
@@ -223,8 +219,20 @@ if has("gui_macvim")
 end
 
 " Default color scheme
-colors railscasts+
+set t_Co=256
+" set t_AB=^[[48;5;%dm
+" set t_AF=^[[38;5;%dm
 set guifont=Monaco:h12
+colorscheme railscasts+
+
+" indent guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=237
+let g:indent_guides_start_level = 2
+" let g:indent_guides_guide_size = 1
+" hi IndentGuidesOdd  ctermbg=black
+" hi IndentGuidesEven ctermbg=darkgrey
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
@@ -233,4 +241,21 @@ endif
 
 " make Hammer quiet if gem github-markup is not installed
 let g:HammerQuiet=1
+
+" set remote make for wna project
+set makeprg=ssh\ root@linux32build17\ 'cd\ /usr/src/xinet/wna/unstable/src;make'
+" sync current file
+function! WNA_sync(p)
+  let l:fullpath=expand(a:p.':p')
+  let l:partial_path=substitute(l:fullpath, g:project_search_root."/", "", "")
+  let l:shellcmd='. ~/.profile;cd '.g:project_search_root.'; ../sync_tools/syncer.rb -n -f '.l:partial_path
+  return l:shellcmd
+endfunction
+function! WNA_sync_all()
+  let l:shellcmd='. ~/.profile;cd '.g:project_search_root.'; ../sync_tools/syncer.rb -n -f '
+  return l:shellcmd
+endfunction
+
+map <Leader>s :!<C-R>=WNA_sync('%')<CR>
+map <Leader>ss :!<C-R>=WNA_sync_all()<CR>
 
