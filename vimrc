@@ -45,6 +45,13 @@ filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+if (&term == 'xterm' || &term =~? '^screen') && hostname() == 'my-machine'
+    " On my machine, I use Konsole with 256 color support
+    set t_Co=8
+    let g:CSApprox_konsole = 1
+endif
+
+
 " Set encoding
 set encoding=utf-8
 
@@ -88,7 +95,14 @@ set tags=tags;
 " Command-T configuration
 let g:CommandTMaxHeight=20
 map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
-map tt :CommandT <C-R>=project_search_root<CR><CR>
+" map tt :CommandT <C-R>=project_search_root<CR><CR>
+
+" ControlP configuration 
+map tt :CtrlP <CR>
+let g:ctrlp_working_path_mode = 2
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_user_command = 'find %s -type f'
 
 " FuzzyFinder
 map fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
