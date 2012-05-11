@@ -94,8 +94,6 @@ map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 " map tt :CommandT <C-R>=project_search_root<CR><CR>
 
 " ControlP configuration 
-map tt :CtrlP <CR>
-let g:ctrlp_working_path_mode = 2
 map tt :CtrlP <C-R>=project_search_root<CR><CR>
 let g:ctrlp_working_path_mode = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
