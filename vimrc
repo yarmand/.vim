@@ -96,6 +96,8 @@ map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 " ControlP configuration 
 map tt :CtrlP <CR>
 let g:ctrlp_working_path_mode = 2
+map tt :CtrlP <C-R>=project_search_root<CR><CR>
+let g:ctrlp_working_path_mode = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 let g:ctrlp_user_command = 'find %s -type f'
