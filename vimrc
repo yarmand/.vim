@@ -273,3 +273,19 @@ endfunction
 map <Leader>s :!<C-R>=WNA_sync('%')<CR>
 map <Leader>ss :!<C-R>=WNA_sync_all()<CR>
 
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '--include-vars',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
+" export NODE_PATH=/usr/local/lib/jsctags/
