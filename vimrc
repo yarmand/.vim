@@ -27,7 +27,7 @@ set visualbell
 
 "Nice statusbar
 set laststatus=2
-"set statusline=
+set statusline+=%{fugitive#statusline()}
 "set statusline+=%2*%-3.3n%0*\                " buffer number
 "set statusline+=%f\                          " file name
 "set statusline+=%h%1*%m%r%w%0*               " flags
@@ -85,7 +85,8 @@ let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
-let g:project_search_root=getcwd()
+let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
+" let g:project_search_root=getcwd()
 set tags=tags;
 
 " Command-T configuration
@@ -95,9 +96,9 @@ map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 
 " ControlP configuration 
 map tt :CtrlP <C-R>=project_search_root<CR><CR>
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_custom_ignore = { 'dir' : '\.git$\|\.hg$\|\.svn$|\.bundle$|vendor$' }
 let g:ctrlp_user_command = 'find %s -type f'
 
 " FuzzyFinder
@@ -113,17 +114,16 @@ map <Leader><Leader> :ZoomWin<CR>
 
 " CTags
 map <Leader>rt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
-map <C-\> :tnext<CR>
+map <Leader>rtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
+map <Leader>ns :tnext<CR>
 
 " TagList
 map ts :TlistToggle<CR>
 map <C-s> :TlistToggle<CR>
 
 " find in project
-map <C-f> bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>
-map fw bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>
-" map <C-F> :Ack what_goes_here <C-R>=project_search_root
-map fp :Ack -a what_goes_here <C-R>=project_search_root<CR>
+map fw bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>/app <C-R>=project_search_root<CR>/lib
+map fp :Ack -a what_goes_here <C-R>=project_search_root<CR>/app <C-R>=project_search_root<CR>/lib
 
 " Gundo configuration
 nmap <C-x><C-u> :GundoToggle<CR>
@@ -241,8 +241,8 @@ colorscheme railscasts+
 
 " indent guides
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=black ctermbg=236
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=darkgrey ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020 ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#BE6515 ctermbg=237
 let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 " hi IndentGuidesOdd  ctermbg=black
