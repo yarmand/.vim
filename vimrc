@@ -86,6 +86,7 @@ map <Leader>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
+map <Leader>p :let g:project_search_root = '<C-R>=project_search_root<CR>'
 " let g:project_search_root=getcwd()
 set tags=tags;
 
@@ -102,7 +103,6 @@ let g:ctrlp_custom_ignore = { 'dir' : '\.git$\|\.hg$\|\.svn$|\.bundle$|vendor$' 
 let g:ctrlp_user_command = 'find %s -type f'
 
 " FuzzyFinder
-map fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 map ff :FufFile <C-R>=project_search_root<CR>/**/<CR>
 map ft :FufBufferTag<CR>
 map fT :FufBufferTagAll<CR>
@@ -124,6 +124,10 @@ map <C-s> :TlistToggle<CR>
 " find in project
 map fw bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>/app <C-R>=project_search_root<CR>/lib
 map fp :Ack -a what_goes_here <C-R>=project_search_root<CR>/app <C-R>=project_search_root<CR>/lib
+
+" next / previous
+map fn :cnext<CR>
+map f<S-N> :cprevious<CR>
 
 " Gundo configuration
 nmap <C-x><C-u> :GundoToggle<CR>
