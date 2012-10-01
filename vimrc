@@ -86,7 +86,7 @@ map <Leader>n :NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 
 let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
-map <Leader>p :let g:project_search_root = '<C-R>=project_search_root<CR>'
+map <Leader>fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 " let g:project_search_root=getcwd()
 set tags=tags;
 
@@ -113,8 +113,8 @@ map fs :FufTag<CR>
 map <Leader><Leader> :ZoomWin<CR>
 
 " CTags
-map <Leader>rt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
-map <Leader>rtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
+map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
+map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
 map <Leader>ns :tnext<CR>
 
 " TagList
@@ -259,23 +259,6 @@ endif
 
 " make Hammer quiet if gem github-markup is not installed
 let g:HammerQuiet=1
-
-" set remote make for wna project
-set makeprg=ssh\ root@linux32build17\ 'cd\ /usr/src/xinet/wna/unstable/src;make'
-" sync current file
-function! WNA_sync(p)
-  let l:fullpath=expand(a:p.':p')
-  let l:partial_path=substitute(l:fullpath, g:project_search_root."/", "", "")
-  let l:shellcmd='. ~/.profile;cd '.g:project_search_root.'; ../sync_tools/syncer.rb -n -f '.l:partial_path
-  return l:shellcmd
-endfunction
-function! WNA_sync_all()
-  let l:shellcmd='. ~/.profile;cd '.g:project_search_root.'; ../sync_tools/syncer.rb -n -f '
-  return l:shellcmd
-endfunction
-
-map <Leader>s :!<C-R>=WNA_sync('%')<CR>
-map <Leader>ss :!<C-R>=WNA_sync_all()<CR>
 
 if executable('coffeetags')
   let g:tagbar_type_coffee = {
