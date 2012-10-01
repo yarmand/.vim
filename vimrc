@@ -122,8 +122,9 @@ map ts :TlistToggle<CR>
 map <C-s> :TlistToggle<CR>
 
 " find in project
-map fw bvey :Ack -a <C-r>" <C-R>=project_search_root<CR>/app <C-R>=project_search_root<CR>/lib
-map fp :Ack -a what_goes_here <C-R>=project_search_root<CR>/app <C-R>=project_search_root<CR>/lib
+let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
+map fw bvey :Ack -a <C-r>" <C-R>=ruby_search_in_project<CR>
+map fp :Ack -a what_goes_here <C-R>=ruby_search_in_project<CR>
 
 " next / previous
 map fn :cnext<CR>
