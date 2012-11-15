@@ -246,8 +246,10 @@ colorscheme railscasts+
 
 " indent guides
 let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020 ctermbg=236
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#BE6515 ctermbg=237
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020 ctermbg=236
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#506050 ctermbg=236
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#BE6515 ctermbg=237
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#505060 ctermbg=237
 let g:indent_guides_start_level = 2
 " let g:indent_guides_guide_size = 1
 " hi IndentGuidesOdd  ctermbg=black
@@ -277,3 +279,13 @@ if executable('coffeetags')
         \ }
 endif
 " export NODE_PATH=/usr/local/lib/jsctags/
+
+" vimclojure
+let vimclojureRoot = $HOME . "/.vim/vimclojure"
+let vimclojure#HighlightBuiltins=1
+let vimclojure#HighlightContrib=1
+let vimclojure#DynamicHighlighting=1
+let vimclojure#ParenRainbow=1
+let vimclojure#WantNailgun = 1
+let vimclojure#NailgunClient = vimclojureRoot."/client/ng"
+
