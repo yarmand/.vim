@@ -97,10 +97,10 @@ map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 
 " ControlP configuration 
 map tt :CtrlP <C-R>=project_search_root<CR><CR>
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_custom_ignore = { 'dir' : '\.git$\|\.hg$\|\.svn$|\.bundle$|vendor$' }
-let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_custom_ignore = { 'dir' : '\v[\/]\.(git|hg|svn)$|\.bundle$|vendor$' }
+" let g:ctrlp_user_command = "find %s -type f | grep -v -e '\.git' -e '.bundle' -e 'vendor' -e tmp"
 
 " FuzzyFinder
 map ff :FufFile <C-R>=project_search_root<CR>/**/<CR>
@@ -111,6 +111,17 @@ map fs :FufTag<CR>
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
+
+" window resize
+nnoremap <Leader>+ :res +5<CR>
+nnoremap <Leader>= :res +5<CR>
+nnoremap  <Leader>- :res -5<CR>
+
+" windows navigation
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
 
 " CTags
 map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
