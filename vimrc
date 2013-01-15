@@ -256,15 +256,11 @@ set guifont=Monaco:h12
 colorscheme railscasts+
 
 " indent guides
-let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020 ctermbg=236
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#506050 ctermbg=236
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#BE6515 ctermbg=237
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#505060 ctermbg=237
+"let g:indent_guides_auto_colors = 0
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#506050 ctermbg=236
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#505060 ctermbg=237
 let g:indent_guides_start_level = 2
-" let g:indent_guides_guide_size = 1
-" hi IndentGuidesOdd  ctermbg=black
-" hi IndentGuidesEven ctermbg=darkgrey
+let g:indentLine_char = '|'
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
