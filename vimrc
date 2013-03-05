@@ -3,6 +3,7 @@
 
 let g:ctags_statusline=1	" To show tag name in status line.
 let generate_tags=1	" To start automatically when a supported
+let mapleader=","
 
 " Directories for swp files
 set swapfile
@@ -17,13 +18,43 @@ set number            " show line number
 set ruler             " show row, col in statusbar
 set nowrap            " disable line wrap
 set showmatch         " show other bracket
-set autoindent        " 
+set autoindent        "
 set tabstop=2
 set softtabstop=2     " tab size
 set shiftwidth=2      " indentation size
 set expandtab         " use spaces for tab
 "set list listchars=tab:\ \ ,trail:·
 set visualbell
+
+"
+" Load all Bundles
+"
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" ZoomWin configuration
+map <Leader>o :ZoomWin<CR>
+
+" window resize
+nnoremap <Leader>+ :res +5<CR>
+nnoremap <Leader>= :res +5<CR>
+nnoremap  <Leader>- :res -5<CR>
+
+" windows navigation
+nnoremap <Leader>h <C-w>h
+nnoremap <Leader>j <C-w>j
+nnoremap <Leader>k <C-w>k
+nnoremap <Leader>l <C-w>l
+nnoremap <Leader>c <C-w>c
+
+" CTags
+map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
+map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
+map <Leader>ns :tnext<CR>
+
 
 "Nice statusbar
 set laststatus=2
@@ -35,21 +66,6 @@ set statusline+=%{fugitive#statusline()}
 "set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 " set nocompatible
-
-"
-" Load all Bundles
-"
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-filetype off 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-if (&term == 'xterm' || &term =~? '^screen') && hostname() == 'my-machine'
-    " On my machine, I use Konsole with 256 color support
-    set t_Co=8
-    let g:CSApprox_konsole = 1
-endif
 
 
 " Set encoding
@@ -95,7 +111,7 @@ let g:CommandTMaxHeight=20
 map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 " map tt :CommandT <C-R>=project_search_root<CR><CR>
 
-" ControlP configuration 
+" ControlP configuration
 map tt :CtrlP <C-R>=project_search_root<CR><CR>
 let g:ctrlp_working_path_mode = 2
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -241,7 +257,9 @@ set t_Co=256
 " set t_AB=^[[48;5;%dm
 " set t_AF=^[[38;5;%dm
 set guifont=Monaco:h12
-colorscheme railscasts+
+" colorscheme railscasts+
+set background=dark
+colorscheme solarized
 
 " indent guides
 let g:indent_guides_auto_colors = 0
