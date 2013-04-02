@@ -7,3 +7,15 @@
 [submodule "bundle/hammer.vim"]
 	path = bundle/hammer.vim
 	url = git://github.com/matthias-guenther/hammer.vim.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/indentLine"]
+	path = bundle/indentLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/syntastic-"]
+	path = bundle/syntastic-
+	url = https://github.com/scrooloose/syntastic.git

@@ -98,8 +98,8 @@ set spellsuggest=5
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
-map <Leader>n :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>e :NERDTree<CR>
+map <C-e> :NERDTreeToggle<CR>
 
 let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
 map <Leader>fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
@@ -113,13 +113,13 @@ map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
 
 " ControlP configuration
 map tt :CtrlP <C-R>=project_search_root<CR><CR>
+map ff :CtrlPMRUFiles<CR>
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = { 'dir' : '\v[\/]\.(git|hg|svn)$|\.bundle$|vendor$' }
 " let g:ctrlp_user_command = "find %s -type f | grep -v -e '\.git' -e '.bundle' -e 'vendor' -e tmp"
 
 " FuzzyFinder
-map ff :FufFile <C-R>=project_search_root<CR>/**/<CR>
 map ft :FufBufferTag<CR>
 map fT :FufBufferTagAll<CR>
 map fd :FufTagWithCursorWord<CR>
@@ -145,8 +145,7 @@ map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extr
 map <Leader>ns :tnext<CR>
 
 " TagList
-map ts :TlistToggle<CR>
-map <C-s> :TlistToggle<CR>
+map <Leader>tt :TagbarToggle<CR>
 
 " find in project
 let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
@@ -270,6 +269,7 @@ set t_Co=256
 " set t_AF=^[[38;5;%dm
 set guifont=Monaco:h12
 " colorscheme railscasts+
+let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
