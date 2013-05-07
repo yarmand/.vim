@@ -25,6 +25,7 @@ set shiftwidth=2      " indentation size
 set expandtab         " use spaces for tab
 "set list listchars=tab:\ \ ,trail:·
 set visualbell
+set mouse=a
 
 "
 " Load all Bundles
@@ -145,7 +146,7 @@ map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extr
 map <Leader>ns :tnext<CR>
 
 " TagList
-map <Leader>tt :TagbarToggle<CR>
+map <Leader><Leader>t :TagbarToggle<CR>
 
 " find in project
 let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
