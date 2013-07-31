@@ -90,7 +90,8 @@ set noequalalways
 "autocmd BufWrite * silent! %s/[\r \t]\+$// " remove space fin de ligne
 "set autowrite "Auto write change buffer
 :au FocusLost * silent! :wa
-autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
+"auto change dir to current buffer
+"autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
 
 " Spell checking
 set spelllang=en,fr
@@ -147,6 +148,9 @@ map <Leader>ns :tnext<CR>
 
 " TagList
 map <Leader><Leader>t :TagbarToggle<CR>
+
+" copy visual to a file
+vmap <C-c> :w! /tmp/vim.copy.txt<CR>
 
 " find in project
 let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
