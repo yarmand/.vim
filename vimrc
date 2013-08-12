@@ -55,6 +55,10 @@ nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 nnoremap <Leader>c <C-w>c
 
+" tabs navigation
+nnoremap <C-S-right> :tabn<CR>
+nnoremap <C-S-left>  :tabp<CR>
+
 " CTags
 map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
 map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
@@ -78,6 +82,8 @@ set encoding=utf-8
 
 " Searching
 set hlsearch
+" toggle highlit
+nnoremap <F3> :set hlsearch!<CR> 
 set incsearch
 set ignorecase
 set smartcase
@@ -105,7 +111,7 @@ set spellsuggest=5
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>e :NERDTree<CR>
-map <C-e> :NERDTreeToggle<CR>
+map <Leader>ee :NERDTreeToggle<CR>
 
 let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
 map <Leader>fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
