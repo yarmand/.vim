@@ -43,6 +43,10 @@ map <Leader>o :ZoomWin<CR>
 nnoremap <Leader>+ :res +5<CR>
 nnoremap <Leader>= :res +5<CR>
 nnoremap  <Leader>- :res -5<CR>
+nnoremap <Leader>v+ :vertical res +5<CR>
+nnoremap <Leader>v= :vertical res +5<CR>
+nnoremap <Leader>v- :vertical res -5<CR>
+
 
 " windows navigation
 nnoremap <Leader>h <C-w>h
