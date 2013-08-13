@@ -111,7 +111,7 @@ set spellsuggest=5
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>e :NERDTree<CR>
-map <Leader>ee :NERDTreeToggle<CR>
+map <Leader><Leader>e :NERDTreeToggle<CR>
 
 let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
 map <Leader>fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
