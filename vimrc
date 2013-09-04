@@ -43,9 +43,9 @@ map <Leader>o :ZoomWin<CR>
 nnoremap <Leader>+ :res +5<CR>
 nnoremap <Leader>= :res +5<CR>
 nnoremap  <Leader>- :res -5<CR>
-nnoremap <Leader>v+ :vertical res +5<CR>
-nnoremap <Leader>v= :vertical res +5<CR>
-nnoremap <Leader>v- :vertical res -5<CR>
+nnoremap <Leader>v+ :vertical res +15<CR>
+nnoremap <Leader>v= :vertical res +15<CR>
+nnoremap <Leader>v- :vertical res -15<CR>
 
 
 " windows navigation
@@ -56,8 +56,9 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>c <C-w>c
 
 " tabs navigation
-nnoremap <C-S-right> :tabn<CR>
-nnoremap <C-S-left>  :tabp<CR>
+nnoremap m :tabn<CR>
+nnoremap M  :tabp<CR>
+
 
 " CTags
 map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
