@@ -39,6 +39,11 @@ call pathogen#helptags()
 " ZoomWin configuration
 map <Leader>o :ZoomWin<CR>
 
+" convinient :Q :W
+command Q q
+command W w
+
+
 " window resize
 nnoremap <Leader>+ :res +5<CR>
 nnoremap <Leader>= :res +5<CR>
@@ -61,8 +66,8 @@ nnoremap M  :tabp<CR>
 
 
 " CTags
-map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
-map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
+map <Leader>frt :!ctags --extra=+f -R *<CR>
+map <Leader>frtr :!find app lib \| ctags --extra=+f -R -L -<CR>
 map <Leader>ns :tnext<CR>
 
 
@@ -115,18 +120,9 @@ map <Leader>e :NERDTree<CR>
 map <Leader>ee :NERDTreeFind<CR>
 map <Leader><Leader>e :NERDTreeToggle<CR>
 
-let g:project_search_root=substitute(system("git rev-parse --show-toplevel"), '\n', '', '')
-map <Leader>fp :let g:project_search_root = '<C-R>=project_search_root<CR>'
-" let g:project_search_root=getcwd()
 set tags=tags;
 
-" Command-T configuration
-let g:CommandTMaxHeight=20
-map tp :let g:project_search_root = '<C-R>=project_search_root<CR>'
-" map tt :CommandT <C-R>=project_search_root<CR><CR>
-
 " ControlP configuration
-map tt :CtrlP <C-R>=project_search_root<CR><CR>
 map ff :CtrlPMRUFiles<CR>
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
@@ -153,11 +149,6 @@ nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
 nnoremap <Leader>l <C-w>l
 
-" CTags
-map <Leader>frt :!cd <C-R>=project_search_root<CR>;ctags --extra=+f -R *<CR>
-map <Leader>frtr :!cd <C-R>=project_search_root<CR>;find app lib \| ctags --extra=+f -R -L -<CR>
-map <Leader>ns :tnext<CR>
-
 " TagList
 map <Leader><Leader>t :TagbarToggle<CR>
 
@@ -165,7 +156,8 @@ map <Leader><Leader>t :TagbarToggle<CR>
 vmap <C-c> :w! /tmp/vim.copy.txt<CR>
 
 " find in project
-let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
+" let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
+let g:ruby_search_in_project = "app lib test"
 map fw bvey :Ack -a <C-r>" <C-R>=ruby_search_in_project<CR>
 map fp :Ack -a what_goes_here <C-R>=ruby_search_in_project<CR>
 
