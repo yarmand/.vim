@@ -44,3 +44,9 @@
 [submodule "bundle/funcoo"]
 	path = bundle/funcoo
 	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "bundle/gocode"]
+	path = bundle/gocode
+	url = git@github.com:Blackrush/vim-gocode.git
+[submodule "bundle/golang"]
+	path = bundle/golang
+	url = git@github.com:jnwhiteh/vim-golang.git
