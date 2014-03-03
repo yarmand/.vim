@@ -128,6 +128,7 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = { 'dir' : '\v[\/]\.(git|hg|svn)$|\.bundle$|vendor$' }
 " let g:ctrlp_user_command = "find %s -type f | grep -v -e '\.git' -e '.bundle' -e 'vendor' -e tmp"
+map <Leader>p :CtrlPClearCache<CR>
 
 " FuzzyFinder
 map ft :FufBufferTag<CR>
