@@ -111,7 +111,7 @@ autocmd BufWrite * silent! %s/[\r \t]\+$// " remove space fin de ligne
 "autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
 
 " Spell checking
-set spelllang=en,fr
+set spelllang=en
 set spell
 set spellsuggest=5
 
