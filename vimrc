@@ -61,8 +61,8 @@ nnoremap <Leader>l <C-w>l
 nnoremap <Leader>c <C-w>c
 
 " tabs navigation
-nnoremap m :tabn<CR>
-nnoremap M  :tabp<CR>
+nnoremap > :tabn<CR>
+nnoremap <  :tabp<CR>
 
 
 " CTags
@@ -159,8 +159,8 @@ vmap <C-c> :w! /tmp/vim.copy.txt<CR>
 " find in project
 " let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
 let g:ruby_search_in_project = "app lib test"
-map fw bvey :Ack -a <C-r>" <C-R>=ruby_search_in_project<CR>
-map fp :Ack -a what_goes_here <C-R>=ruby_search_in_project<CR>
+map fw bvey :Ack <C-r>" <C-R>=ruby_search_in_project<CR>
+map fp :Ack what_goes_here <C-R>=ruby_search_in_project<CR>
 
 " next / previous
 map fn :cnext<CR>
