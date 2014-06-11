@@ -89,7 +89,7 @@ set encoding=utf-8
 " Searching
 set hlsearch
 " toggle highlit
-nnoremap <F3> :set hlsearch!<CR> 
+nnoremap <F3> :set hlsearch!<CR>
 set incsearch
 set ignorecase
 set smartcase
@@ -103,7 +103,8 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
-"autocmd BufWrite * silent! %s/[\r \t]\+$// " remove space fin de ligne
+autocmd BufWrite * silent! %s/[\r \t]\+$// " remove space fin de ligne
+
 "set autowrite "Auto write change buffer
 :au FocusLost * silent! :wa
 "auto change dir to current buffer
