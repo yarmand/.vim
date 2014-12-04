@@ -329,3 +329,6 @@ let vimclojure#NailgunClient = vimclojureRoot."/client/ng"
 
 " bug workaround shortcuts
 map <Leader><Leader>h :setfiletype html<CR>
+
+" add another comment line shortcut
+map <Leader>/ <Leader>c<space>
