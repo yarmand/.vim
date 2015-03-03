@@ -68,6 +68,7 @@ nnoremap <  :tabp<CR>
 " CTags
 map <Leader>frt :!ctags --extra=+f -R *<CR>
 map <Leader>frtr :!find app lib \| ctags --extra=+f -R -L -<CR>
+map <Leader>frtt :!find app lib test \| ctags --extra=+f -R -L -<CR>
 map <Leader>ns :tnext<CR>
 
 
@@ -88,8 +89,8 @@ set encoding=utf-8
 
 " Searching
 set hlsearch
-" toggle highlit
-nnoremap <F3> :set hlsearch!<CR>
+" clear search hilight
+nnoremap <leader>/ :noh<cr>
 set incsearch
 set ignorecase
 set smartcase
@@ -230,7 +231,7 @@ vmap <C-j> ]egv
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " gist-vim defaults
 if has("mac")
@@ -290,12 +291,13 @@ let g:kolor_underlined=0                " Enable underline. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
 colorscheme kolor
 
-" indent guides
-"let g:indent_guides_auto_colors = 0
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#506050 ctermbg=236
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#505060 ctermbg=237
+" indent lines
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 239
+let g:indentLine_color_dark = 2
+let g:indentLine_color_tty_light = 4
 let g:indent_guides_start_level = 2
-let g:indentLine_char = '|'
+let g:indentLine_noConcealCursor = 1
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
@@ -331,3 +333,8 @@ let vimclojure#ParenRainbow=1
 let vimclojure#WantNailgun = 1
 let vimclojure#NailgunClient = vimclojureRoot."/client/ng"
 
+" bug workaround shortcuts
+map <Leader><Leader>h :setfiletype html<CR>
+
+" add another comment line shortcut
+map <Leader>/ <Leader>c<space>
