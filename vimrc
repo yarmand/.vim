@@ -283,10 +283,16 @@ set t_Co=256
 " set t_AB=^[[48;5;%dm
 " set t_AF=^[[38;5;%dm
 set guifont=Monaco:h12
-" colorscheme railscasts+
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+
+" let g:solarized_termcolors=256
+" colorscheme solarized
+
+let g:kolor_italic=1                    " Enable italic. Default: 1
+let g:kolor_bold=1                      " Enable bold. Default: 1
+let g:kolor_underlined=0                " Enable underline. Default: 0
+let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
+colorscheme kolor
 
 " indent lines
 let g:indentLine_char = '┆'
