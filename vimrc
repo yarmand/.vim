@@ -7,8 +7,8 @@ let mapleader=","
 
 " Directories for swp files
 set swapfile
-set backupdir=~/tmp/vim
-set directory=~/tmp/vim
+"set backupdir=~/tmp/vim
+"set directory=~/tmp/vim
 
 syntax on             " syntax coloration
 filetype plugin on
@@ -110,6 +110,9 @@ autocmd BufWrite * silent! %s/[\r \t]\+$// " remove space fin de ligne
 :au FocusLost * silent! :wa
 "auto change dir to current buffer
 "autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
+
+"auto change dir to current buffer git repo root
+autocmd BufEnter * Gcd
 
 " Spell checking
 set spelllang=en
