@@ -87,10 +87,10 @@ set statusline+=%{fugitive#statusline()}
 " Set encoding
 set encoding=utf-8
 
-" Searching
+ "Searching
 set hlsearch
 " clear search hilight
-nnoremap <leader>/ :noh<cr>
+nnoremap <leader><Leader>/ :noh<cr>
 set incsearch
 set ignorecase
 set smartcase
