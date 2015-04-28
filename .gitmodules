@@ -72,3 +72,6 @@
 [submodule "/Users/yarmand/.vim/bundle/vim-go"]
 	path = /Users/yarmand/.vim/bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
+[submodule "bundle/vim-puppet"]
+	path = bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git
