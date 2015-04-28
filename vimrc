@@ -285,14 +285,14 @@ set t_Co=256
 set guifont=Monaco:h12
 set background=dark
 
-" let g:solarized_termcolors=256
-" colorscheme solarized
+let g:solarized_termcolors=256
+colorscheme solarized
 
 let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-colorscheme kolor
+"colorscheme kolor
 
 " indent lines
 let g:indentLine_char = '┆'
