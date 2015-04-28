@@ -327,15 +327,6 @@ if executable('coffeetags')
 endif
 " export NODE_PATH=/usr/local/lib/jsctags/
 
-" vimclojure
-let vimclojureRoot = $HOME . "/.vim/vimclojure"
-let vimclojure#HighlightBuiltins=1
-let vimclojure#HighlightContrib=1
-let vimclojure#DynamicHighlighting=1
-let vimclojure#ParenRainbow=1
-let vimclojure#WantNailgun = 1
-let vimclojure#NailgunClient = vimclojureRoot."/client/ng"
-
 " bug workaround shortcuts
 map <Leader><Leader>h :setfiletype html<CR>
 
