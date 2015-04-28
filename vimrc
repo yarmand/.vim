@@ -26,6 +26,7 @@ set expandtab         " use spaces for tab
 "set list listchars=tab:\ \ ,trail:·
 set visualbell
 set mouse=a
+set nofoldenable    " disable folding"
 
 "
 " Load all Bundles
