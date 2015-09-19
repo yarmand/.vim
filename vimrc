@@ -113,7 +113,7 @@ autocmd BufWrite * silent! %s/[\r \t]\+$// " remove space fin de ligne
 "autocmd BufEnter * if expand("%:p:h") !~ '^/backup' | silent! lcd %:p:h | endif
 
 "auto change dir to current buffer git repo root
-autocmd BufEnter * Gcd
+autocmd BufEnter * silent! Gcd
 
 " Spell checking
 set spelllang=en
@@ -141,6 +141,25 @@ map ft :FufBufferTag<CR>
 map fT :FufBufferTagAll<CR>
 map fd :FufTagWithCursorWord<CR>
 map fs :FufTag<CR>
+
+" Go
+map <Leader>gd :GoDef<CR>
+map <Leader>gi :GoImports<CR>
+map <Leader>gh :GoDoc<CR>
+map <Leader>gt :GoTest<CR>
+map <Leader>gl :GoLint<CR>
+map <Leader>gr :GoRename<CR>
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_autosave = 0
+autocmd BufWrite *.go :GoImports
+autocmd BufWrite *.go :GoFmt
+autocmd BufWrite *.go :GoLint
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
@@ -294,6 +313,7 @@ let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
 "colorscheme kolor
+"colorscheme hybrid
 
 " indent lines
 let g:indentLine_char = '┆'
