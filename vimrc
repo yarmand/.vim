@@ -68,8 +68,8 @@ nnoremap <  :tabp<CR>
 
 " CTags
 map <Leader>frt :!ctags --extra=+f -R *<CR>
+map <Leader>frtt :!ctags --extra=+f -R --exclude='*test*' *
 map <Leader>frtr :!find app lib \| ctags --extra=+f -R -L -<CR>
-map <Leader>frtt :!find app lib test \| ctags --extra=+f -R -L -<CR>
 map <Leader>ns :tnext<CR>
 
 
@@ -183,7 +183,7 @@ vmap <C-c> :w! /tmp/vim.copy.txt<CR>
 
 " find in project
 " let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
-let g:ruby_search_in_project = "app lib test"
+let g:ruby_search_in_project = ""
 map fw bvey :Ack <C-r>" <C-R>=ruby_search_in_project<CR>
 map fp :Ack what_goes_here <C-R>=ruby_search_in_project<CR>
 
