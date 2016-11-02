@@ -55,6 +55,10 @@ nnoremap <Leader>v- :vertical res -15<CR>
 
 
 " windows navigation
+nnoremap <A-left> :wincmd h<CR>
+nnoremap <A-right> :wincmd l<CR>
+nnoremap <A-up> :wincmd k<CR>
+nnoremap <A-down> :wincmd j<CR>
 nnoremap <Leader>h <C-w>h
 nnoremap <Leader>j <C-w>j
 nnoremap <Leader>k <C-w>k
@@ -168,12 +172,6 @@ map <Leader><Leader> :ZoomWin<CR>
 nnoremap <Leader>+ :res +5<CR>
 nnoremap <Leader>= :res +5<CR>
 nnoremap  <Leader>- :res -5<CR>
-
-" windows navigation
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
 
 " TagList
 map <Leader><Leader>t :TagbarToggle<CR>
