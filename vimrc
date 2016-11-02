@@ -181,12 +181,6 @@ map <Leader><Leader>t :TagbarToggle<CR>
 " copy visual to a file
 vmap <C-c> :w! /tmp/vim.copy.txt<CR>
 
-" find in project
-" let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
-let g:ruby_search_in_project = ""
-map fw bvey :Ack <C-r>" <C-R>=ruby_search_in_project<CR>
-map fp :Ack what_goes_here <C-R>=ruby_search_in_project<CR>
-
 " next / previous
 map fn :cnext<CR>
 map f<S-N> :cprevious<CR>
@@ -353,3 +347,12 @@ map <Leader><Leader>h :setfiletype html<CR>
 
 " add another comment line shortcut
 map <Leader>/ <Leader>c<space>
+
+" find in project
+" let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
+let g:ackprg = 'ag --vimgrep'
+let g:ruby_search_in_project = ""
+map fw bvey :Ack <C-r>" <C-R>=ruby_search_in_project<CR>
+map fp :Ack what_goes_here <C-R>=ruby_search_in_project<CR>
+
+
