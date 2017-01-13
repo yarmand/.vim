@@ -297,14 +297,14 @@ set t_Co=256
 set guifont=Monaco:h12
 set background=dark
 
-let g:solarized_termcolors=256
-colorscheme solarized
+"let g:solarized_termcolors=256
+"colorscheme solarized
 
 let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-"colorscheme kolor
+colorscheme kolor
 "colorscheme hybrid
 
 " indent lines
@@ -347,10 +347,9 @@ map <Leader><Leader>h :setfiletype html<CR>
 map <Leader>/ <Leader>c<space>
 
 " find in project
-" let g:ruby_search_in_project = project_search_root."/app ".project_search_root."/lib ".project_search_root."/test"
-let g:ackprg = 'ag --vimgrep'
 let g:ruby_search_in_project = ""
-map fw bvey :Ack <C-r>" <C-R>=ruby_search_in_project<CR>
-map fp :Ack what_goes_here <C-R>=ruby_search_in_project<CR>
+map fw bvey :Ag <C-r>" <C-R>=ruby_search_in_project<CR>
+map fW :Ag <C-r>" <C-R>=ruby_search_in_project<CR>
+map fp :Ag what_goes_here <C-R>=ruby_search_in_project<CR>
 
 
