@@ -41,8 +41,8 @@ call pathogen#helptags()
 map <Leader>o :ZoomWin<CR>
 
 " convinient :Q :W
-command Q q
-command W w
+command! Q q
+command! W w
 
 
 " window resize
@@ -192,13 +192,13 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-function s:setupWrapping()
+function! s:setupWrapping()
   set wrap
   set wrapmargin=2
   set textwidth=72
 endfunction
 
-function s:setupMarkup()
+function! s:setupMarkup()
   call s:setupWrapping()
   map <buffer> <Leader>p :Hammer<CR>
 endfunction
@@ -297,14 +297,14 @@ set t_Co=256
 set guifont=Monaco:h12
 set background=dark
 
-"let g:solarized_termcolors=256
-"colorscheme solarized
+let g:solarized_termcolors=256
+colorscheme solarized
 
 let g:kolor_italic=1                    " Enable italic. Default: 1
 let g:kolor_bold=1                      " Enable bold. Default: 1
 let g:kolor_underlined=0                " Enable underline. Default: 0
 let g:kolor_alternative_matchparen=0    " Gray 'MatchParen' color. Default: 0
-colorscheme kolor
+"colorscheme kolor
 "colorscheme hybrid
 
 " indent lines
@@ -352,4 +352,6 @@ map fw bvey :Ag <C-r>" <C-R>=ruby_search_in_project<CR>
 map fW :Ag <C-r>" <C-R>=ruby_search_in_project<CR>
 map fp :Ag what_goes_here <C-R>=ruby_search_in_project<CR>
 
+" launch tig
+map <Leader>t :! tig<CR> <CR>
 
