@@ -355,3 +355,14 @@ map fp :Ag what_goes_here <C-R>=ruby_search_in_project<CR>
 " launch tig
 map <Leader>t :! tig<CR> <CR>
 
+" sessions
+function! SaveSession()
+  mksession! .vimsession
+endfunction
+function! SaveAndQuit()
+  call SaveSession()
+  quitall
+endfunction
+nmap <Leader>ss :call SaveSession()<CR>
+nmap <Leader>qq :call SaveAndQuit()<CR>
+
