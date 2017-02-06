@@ -370,3 +370,4 @@ nmap <Leader>qq :call SaveAndQuit()<CR>
 map gs :Gstatus<CR>
 map gc :GCommit<CR>
 map gd :Gdiff<CR>
+map gp :Gpush<CR>
