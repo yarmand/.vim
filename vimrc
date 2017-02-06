@@ -366,3 +366,7 @@ endfunction
 nmap <Leader>ss :call SaveSession()<CR>
 nmap <Leader>qq :call SaveAndQuit()<CR>
 
+" fugitive
+map gs :Gstatus<CR>
+map gc :GCommit<CR>
+map gd :Gdiff<CR>
