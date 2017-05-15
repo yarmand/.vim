@@ -1,7 +1,7 @@
 " www.harakys.com
 " @yarmand
 
-let g:ctags_statusline=1	" To show tag name in status line.
+"let g:ctags_statusline=1	" To show tag name in status line.
 let generate_tags=1	" To start automatically when a supported
 let mapleader=","
 
@@ -76,15 +76,6 @@ map <Leader>frtt :!ctags --extra=+f -R --exclude='*test*' *
 map <Leader>frtr :!find app lib \| ctags --extra=+f -R -L -<CR>
 map <Leader>ns :tnext<CR>
 
-
-"Nice statusbar
-set laststatus=2
-set statusline+=%{fugitive#statusline()}
-"set statusline+=%2*%-3.3n%0*\                " buffer number
-"set statusline+=%f\                          " file name
-"set statusline+=%h%1*%m%r%w%0*               " flags
-"set statusline+=%=                           " right align
-"set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 " set nocompatible
 
@@ -368,6 +359,16 @@ nmap <Leader>qq :call SaveAndQuit()<CR>
 
 " fugitive
 map gs :Gstatus<CR>
-map gc :GCommit<CR>
+map gc :Gcommit<CR>
 map gd :Gdiff<CR>
 map gp :Gpush<CR>
+
+"Nice statusbar
+set laststatus=2
+set statusline=%f\                          " file name
+set statusline+=%h%1*%m%r%w%0*               " flags
+set statusline+=%=                           " right align
+set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
+set statusline+=%{fugitive#statusline()}
+
+
